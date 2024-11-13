@@ -1,11 +1,11 @@
-type CarItem = { name: string; price: number };
+type CartItem = { name: string; price: number };
 type OrderStatus = 'open' | 'closed'
 
-export class ShoppingCart {
-  private readonly _items: CarItem[] = [];
+export class ShoppingCartLegacy {
+  private readonly _items: CartItem[] = [];
   private _orderStatus: OrderStatus = 'open';
 
-  addItem(item: CarItem): void {
+  addItem(item: CartItem): void {
     this._items.push(item)
   }
 
@@ -13,7 +13,7 @@ export class ShoppingCart {
     this._items.splice(index, 1);
   }
 
-  get items(): Readonly<CarItem[]> {
+  get items(): Readonly<CartItem[]> {
     return this._items
   }
 
@@ -57,7 +57,7 @@ export class ShoppingCart {
   }
 }
 
-const shoppingCart = new ShoppingCart();
+const shoppingCart = new ShoppingCartLegacy();
 shoppingCart.addItem({ name: 'Camiseta', price: 48.9 })
 shoppingCart.addItem({ name: 'Caderno', price: 20.9 })
 shoppingCart.addItem({ name: 'Lápis', price: 8.9 })
