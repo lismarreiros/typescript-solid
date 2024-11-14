@@ -3,11 +3,12 @@ import { Order } from "./classes/order";
 import { Persistence } from "./services/persistence";
 import { Product } from "./classes/product";
 import { ShoppingCart } from "./classes/shopping-cart";
-import { TenPercentDiscount } from "./classes/discount";
+import { NoDiscount } from "./classes/discount";
 
 // const fiftyPercentDiscount = new FiftyPercentDiscount();
-const tenPercentDiscount = new TenPercentDiscount();
-const shoppingCart = new ShoppingCart(tenPercentDiscount);
+// const tenPercentDiscount = new TenPercentDiscount();
+const noDiscount = new NoDiscount();
+const shoppingCart = new ShoppingCart(noDiscount);
 const messaging = new Messaging();
 const persistence = new Persistence();
 const order = new Order(shoppingCart, messaging, persistence);
